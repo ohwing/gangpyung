@@ -2,21 +2,70 @@
 <html lang="ko">
 <head>
 	
-	<title>Digital Team HTML5 Layout - Tooplate</title>
+	<title>강의평가</title>
   
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  
+	<link rel="stylesheet" type="text/css" href="/assets/custom.css">
 	<!--
 	Template 2075 Digital Team
 	http://www.tooplate.com/view/2075-digital-team
 	-->
-
+	
 </head>
 <body>
 	
 <%= yield %>
+
+<!-- Modal -->
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+      	
+        <%= simple_form_for(:user, url: session_path(:user), remote: true) do |f| %>
+		  <div class="form-inputs">
+		    <%= f.input :email, required: false, autofocus: true, input_html: { class: 'form-control' }  %>
+		    <%= f.input :password, required: false, input_html: { class: 'form-control' } %>
+		    <br>
+		  </div>
+		
+		  <div class="form-actions">
+		    <%= f.button :submit, "로그인", { class: 'btn btn-primary btn-lg btn-block' } %>
+		    <button type="button" class="btn btn-default btn-lg btn-block" data-dismiss="modal">닫기</button>
+		  </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+      	
+        <%= simple_form_for(:user, url: registration_path(:user), remote: true) do |f| %>
+		  <%= f.error_notification %>
+		
+		  <div class="form-inputs">
+		    <%= f.input :email, required: true, autofocus: true, input_html: { class: 'form-control' } %>
+		    <%= f.input :nickname, required: true, input_html: { class: 'form-control' } %>
+		    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { class: 'form-control' } %>
+		    <%= f.input :password_confirmation, required: true, input_html: { class: 'form-control' } %>
+		  	<br>
+		  </div>
+		
+		  <div class="form-actions">
+		  	<%= f.button :submit, "회원가입", { class: 'btn btn-primary btn-lg btn-block' } %>
+		    <button type="button" class="btn btn-default btn-lg btn-block" data-dismiss="modal">닫기</button>
+		  </div>
+		<% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
 	
 </body>

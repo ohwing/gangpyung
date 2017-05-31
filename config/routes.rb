@@ -1,7 +1,21 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'home#index'
-  get 'home/gangpyung' => 'home#gangpyung'
+  get '/gangpyung' => 'home#gangpyung'
+  
+  devise_scope :user do
+    # using login path for registration
+    get '/login' => 'devise/sessions#new'
+    get '/sign-up' => 'devise/registrations#new'
+  end
+  
+  #posts controller
+  #create
+  get '/posts/posts_index' =>'posts/posts_index'
+  
+  #le posts controller
+  #create
+  get '/leposts/leposts_index' => 'leposts/leposts_index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
