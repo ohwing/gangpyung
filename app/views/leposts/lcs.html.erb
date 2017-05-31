@@ -1,0 +1,9 @@
+<a href="/leposts/lederand">리더와 자기관리</a>
+<a href="/leposts/lcs">리더십사회봉사</a>
+<a href="/">홈으로</a>
+<a href="/leposts/leposts_index">강평홈으로</a>
+<a href="/leposts/new/2">강의평가하기</a>
+
+<% @lpost.each do |p| %>
+    <a href="#"><h1><%= p.title%></h1></a>
+    <% end%>

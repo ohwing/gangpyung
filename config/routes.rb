@@ -15,7 +15,14 @@ Rails.application.routes.draw do
   
   #le posts controller
   #create
-  get '/leposts/leposts_index' => 'leposts/leposts_index'
+  get '/leposts/leposts_index' => 'leposts#leposts_index'
+  get '/leposts/lederand' => 'leposts#lederand'
+  get '/leposts/lcs' => 'leposts#lcs'
+  
+  #create 위한 url
+  get '/leposts/new/:lepost_id' => 'leposts#new'
+  get '/leposts/create/:lepost_name/:lepost_id' => 'leposts#create'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
