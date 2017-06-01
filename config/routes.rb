@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  
   root 'home#index'
   get '/gangpyung' => 'home#gangpyung'
   
@@ -19,13 +20,19 @@ Rails.application.routes.draw do
   get '/leposts/lederand' => 'leposts#lederand'
   get '/leposts/lcs' => 'leposts#lcs'
   
-  #create 위한 url
+  #Lecture CRUD URL
   get '/leposts/new/:lepost_id' => 'leposts#new' #게시글 생성화면 나오는 url
   get '/leposts/create/:lepost_name/:lepost_id' => 'leposts#create' #게시글 올릴때 나오는 url 
   get '/leposts/:lepost_id/show/:lpost_id' => 'leposts#show' #보는 곳 url
   get '/leposts/edit/:lpost_id' => 'leposts#edit'
   get '/leposts/:lepost_id/update/:lpost_id' => 'leposts#updateda' #업데이트 해주는 곳
   get '/leposts/:lepost_id/destroy/:lpost_id' => 'leposts#destroy'
+  
+  #lecture COMMENT URL
+  get '/leposts/:lepost_id/show/:lpost_id/lcomment' => 'lcomments#lcomment'
+  get 'lcomments/destroy/:lpost_id' => 'lcomments#destroy'
+  
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

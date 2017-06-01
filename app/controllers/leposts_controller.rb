@@ -6,7 +6,7 @@ class LepostsController < ApplicationController
     
     #교양 그룹##########################################
     def lederand
-        @lpost= Lpost.where(lepost_id: 1)
+        @lpost= Lpost.where(lepost_id: 1).order("created_at DESC").paginate(:page => params[:page], :per_page => 8)
     end
     #LederShip Community Service 약자 lcs
     
@@ -42,6 +42,7 @@ class LepostsController < ApplicationController
     def show
         @lpost=Lpost.find(params[:lpost_id])
         @lepost=Lepost.find(params[:lepost_id])
+        @comment = Lcomment.where(lpost_id: params[:lpost_id])
         #게시글의 아이디를 받아야한다. lpost.id
     end
     

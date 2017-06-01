@@ -1,2 +1,42 @@
 .texthide{white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
 *{box-sizing: border-box}
+
+.hi{
+    position: absolute;
+    top:600px;
+}
+
+
+/* Wide */
+
+	@media screen and (min-width: 1201px) {
+
+	}
+
+/* Narrow */
+
+	@media screen and (min-width: 757px) and (max-width: 1200px) {
+      
+	}
+
+/* Narrower */
+
+	@media screen and (min-width: 757px) and (max-width: 1000px) {
+
+	}
+
+/* Mobile */
+
+	@media screen and (max-width: 756px) {
+        .hi{
+            position: absolute;
+            top:1800px;
+        }
+
+	}
+
+/* Off-Canvas Sidebar */
+
+	@media screen and (max-width: 1000px) {
+
+	}
